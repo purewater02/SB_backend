@@ -11,7 +11,7 @@ spring:
     show-sql: true
     hibernate:
 #      ?? ?? ?? create, update ??? ??.
-      ddl-auto: create
+      ddl-auto: create-drop
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: false

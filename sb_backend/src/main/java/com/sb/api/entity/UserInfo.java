@@ -6,14 +6,16 @@ import com.sb.api.enums.RoleType;
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "sb_user")
-public class User {
+@Table(name = "user_info")
+public class UserInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // 기본전략 Sequence
-    private Long idx;
+    private Long userIdx;
 
     @Enumerated(EnumType.STRING)
     private RoleType role;
@@ -51,10 +53,14 @@ public class User {
 
     private String employeeCode;
 
+    @OneToMany(mappedBy = "userInfo")
+    private List<Pay> pays = new ArrayList<>();
+
+    @OneToMany(mappedBy = "userInfo")
+    private List<StarHistory> starHistories = new ArrayList<>();
+
     private Timestamp createdAt;
 
     private Timestamp updatedAt;
-
-
 
 }
