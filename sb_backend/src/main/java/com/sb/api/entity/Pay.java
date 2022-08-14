@@ -1,8 +1,13 @@
 package com.sb.api.entity;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Entity
+@Data
+@NoArgsConstructor
 @Table(name = "pay")
 public class Pay {
     @Id

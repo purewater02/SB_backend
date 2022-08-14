@@ -1,9 +1,17 @@
 package com.sb.api.entity;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 
 @Entity
+@Data
+@NoArgsConstructor
 @Table(name = "notification")
 public class Notification {
     @Id
@@ -18,6 +26,12 @@ public class Notification {
 
     @Lob
     private String content; //내용은 이미지로 하는 편인듯
+
+    @CreationTimestamp
+    private Timestamp createdAt;
+
+    @UpdateTimestamp
+    private Timestamp updatedAt;
 
 
 

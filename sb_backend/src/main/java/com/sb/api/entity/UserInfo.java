@@ -2,6 +2,10 @@ package com.sb.api.entity;
 
 import com.sb.api.enums.CashRecieptType;
 import com.sb.api.enums.RoleType;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -10,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Data
+@NoArgsConstructor
 @Table(name = "user_info")
 public class UserInfo {
 
@@ -59,8 +65,10 @@ public class UserInfo {
     @OneToMany(mappedBy = "userInfo")
     private List<StarHistory> starHistories = new ArrayList<>();
 
+    @CreationTimestamp
     private Timestamp createdAt;
 
+    @UpdateTimestamp
     private Timestamp updatedAt;
 
 }
