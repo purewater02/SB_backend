@@ -17,3 +17,7 @@ spring:
     open-in-view: false
     generate-ddl: false
 
+# App properties
+jwt:
+  jwtSecret: smSecretKey
+  jwtExpirationMs: 86400000
