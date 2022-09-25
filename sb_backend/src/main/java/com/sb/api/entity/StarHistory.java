@@ -15,7 +15,7 @@ import java.sql.Timestamp;
 @Table(name = "star_history")
 public class StarHistory {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long starHistoryId;
 
     @ManyToOne

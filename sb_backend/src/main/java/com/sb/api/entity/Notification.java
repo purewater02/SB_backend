@@ -15,7 +15,7 @@ import java.sql.Timestamp;
 @Table(name = "notification")
 public class Notification {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long notificationId;
 
     private String category; //공지인지 이벤트인지

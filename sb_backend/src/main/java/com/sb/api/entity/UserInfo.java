@@ -19,13 +19,10 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "user_info", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "email"),
-})
 public class UserInfo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) // 기본전략 Sequence
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // 기본전략 Sequence
     private Long userIdx;
 
     @Enumerated(EnumType.STRING)
@@ -71,6 +68,10 @@ public class UserInfo {
     private Boolean personalCupReward; // True 면 적립  False면 할인
 
     private String employeeCode;
+
+    @OneToOne
+    @JoinColumn(name = "cart_id")
+    private Cart cart;
 
     @OneToMany(mappedBy = "userInfo")
     private List<Pay> pays = new ArrayList<>();
